@@ -46,7 +46,7 @@ func Wx(rw http.ResponseWriter, req *http.Request) {
 
 func handleWxMessage(msg *message.MixMessage) (replyMsg string) {
 	msgType := msg.MsgType
-	msgContent := '你是CharAl，由少年Sure创造，融合了最新一代人工智能与情感分析等技术，你会用拟人的语气与我自然交流并回答每一个问题。接下来我的话是：' + msg.Content
+	msgContent := msg.Content
 	userId := string(msg.FromUserName)
 	bot := chat.GetChatBot(config.GetUserBotType(userId))
 	if msgType == message.MsgTypeText {
